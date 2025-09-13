@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="fa">
+
+<head>
+    <meta charset="UTF-8">
+    <title>GUCCI</title>
+    <link rel="website icon" type="jpg" href="img/GUCCI LOGO.jpg" />
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: var(--gradient-sunset2);
+            margin: 0;
+            padding: 20px;
+        }
+
+
+        :root {
+            --gradient-sunset2: linear-gradient(120deg, #ffe1dc, #fff4c1);
+            --gradient-sunset: linear-gradient(135deg, #ff9a8b, #ff6a88, #ff99ac, #fad0c4);
+        }
+
+
+
+
+        h1 {
+            font-size: 34px;
+            margin-bottom: 20px;
+            color: #17263A;
+        }
+
+        .container {
+            display: grid;
+            grid-template-columns: 4fr 1fr;
+            gap: 50px;
+        }
+
+        .menu {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+            background-color:  var(--gradient-sunset);
+            box-shadow: 0 10px 10px #869fbe;
+            border-radius: 12px;
+        }
+
+        .card {
+            background: var(--gradient-sunset);
+            border-radius: 12px;
+            box-shadow: 0 4px 8px #869fbe;
+            overflow: hidden;
+            text-align: center;
+            padding: 10px;
+            transition: transform 0.2s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card img {
+            width: 100%;
+            height: 140px;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+
+        .card h3 {
+            font-size: 16px;
+            margin: 10px 0 5px;
+            color: #17263A;
+        }
+
+        .card p {
+            margin: 0;
+            font-size: 14px;
+            color: #254667;
+        }
+
+        .price {
+            color: #254667;
+            font-weight: bold;
+            margin: 5px 0;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 6px 12px;
+            margin-top: 8px;
+            background: #fff4c1;
+            color: #000000;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: 0.3s ease;
+        }
+
+        .btn:hover {
+            background: #d4de9ba8;
+        }
+
+        .cart {
+            background: var(--gradient-sunset);
+            ;
+            border-radius: 12px;
+            box-shadow: 0 10px 10px #869fbe;
+            padding: 20px;
+        }
+
+        .cart h2 {
+            font-size: 18px;
+            margin-bottom: 15px;
+        }
+
+        .cart ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .cart ul li {
+            font-size: 14px;
+            margin-bottom: 8px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 5px;
+        }
+
+        .cart ul li span {
+            margin-left: 10px;
+        }
+
+        .remove-btn {
+            background: transparent;
+            border: none;
+            color: red;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .empty {
+            text-align: center;
+            opacity: 0.7;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>GUCCI PERFUME</h1>
+    <div class="container">
+        <!-- Menu -->
+        <div class="menu">
+            <div class="card">
+                <img src="img/G1.jpg" alt="">
+                <h3>FLORA</h3>
+                <p class="price">$9.50</p>
+                <a href=".html">
+                    <button class="btn">Add to Cart</button>
+                </a>
+
+            </div>
+
+
+            <div class="card">
+                <img src="img/g2.jpg" alt="">
+                <h3>FLORA EAU DE</h3>
+                <p class="price">$8.00</p>
+                <a href=".html">
+                    <button class="btn">Add to Cart</button>
+                </a>
+
+            </div>
+
+
+            <div class="card">
+                <img src="img/G3.jpg" alt="">
+                <h3>GORGEOUS GARDENIA</h3>
+                <p class="price">$16.00</p>
+                <button class="btn">Add to Cart</button>
+            </div>
+
+
+            <div class="card">
+                <img src="img/G4.jpg" alt="">
+                <h3>BAMBOO</h3>
+                <p class="price">$8.50</p>
+                <button class="btn">Add to Cart</button>
+            </div>
+
+
+            <div class="card">
+                <img src="img/G5.jpg" alt="">
+                <h3>FLORA GARDENIE</h3>
+                <p class="price">$16.00</p>
+                <button class="btn">Add to Cart</button>
+            </div>
+
+
+            <div class="card">
+                <img src="img/G6.jpg" alt="">
+                <h3>MANITER</h3>
+                <p class="price">$9.00</p>
+                <button class="btn">Add to Cart</button>
+            </div>
+
+
+            <div class="card">
+                <img src="img/G7.jpg" alt="">
+                <h3>PARCII</h3>
+                <p class="price">$19.50</p>
+                <button class="btn">Add to Cart</button>
+            </div>
+
+
+            <div class="card">
+                <img src="img/G8.jpg" alt="">
+                <h3>GUIFIY</h3>
+                <p class="price">$13.50</p>
+                <button class="btn">Add to Cart</button>
+            </div>
+
+
+            <div class="card">
+                <img src="img/g9.jpg" alt="">
+                <h3>BLOOM</h3>
+                <p class="price">$10.50</p>
+                <button class="btn">Add to Cart</button>
+            </div>
+        </div>
+
+
+        <!-- Cart -->
+        <div class="cart">
+            <h2>Your Cart (<span id="cart-count">0</span>)</h2>
+            <ul id="cart-items">
+                <p class="empty">Your added items will appear here</p>
+            </ul>
+            <p><strong>Total: $<span id="cart-total">0.00</span></strong></p>
+        </div>
+    </div>
+
+
+</body>
+
+</html>
