@@ -1,0 +1,90 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>COCO</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: rgb(240, 223, 231);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .product-card {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 300px;
+        }
+        .product-image {
+            width: 100%;
+            height: 200px;
+            border-radius: 5px 5px 0 0;
+            object-fit: cover;
+        }
+        .product-details {
+            padding: 10px 0;
+        }
+        .product-name {
+            font-weight: bold;
+            font-size: 1.2em;
+            margin-bottom: 10px;
+        }
+        .product-description {
+            font-size: 0.9em;
+            color: gray;
+            margin-bottom: 15px;
+        }
+        .price {
+            font-size: 1.2em;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        .discount {
+            text-decoration: line-through;
+            color: gray;
+            font-size: 0.8em;
+        }
+        .buy {
+            background-color: #db8ba6;
+            color: white;
+            border: none;
+            padding: 10px;
+            width: 100%;
+            cursor: pointer;
+            border-radius: 5px;
+            font-size: 1em;
+            margin-top: 10px;
+            box-shadow: 0 4px 4px #ba72c9;
+        }
+        .buy:hover {
+            background-color: #ac395f;
+        }
+    </style>
+</head>
+<body>
+
+<div class="product-card">
+    <img class="product-image" src="img/p.jpg" alt="Perfume Image">
+    <div class="product-details">
+        <span style="font-size: 0.9em; color: gray;">PERFUME</span>
+        <h3 class="product-name">COCO Chanel Mademoiselle</h3>
+        <p class="product-description">Treat yourself or someone special to the iconic Chanel perfume. With its rich history, complex blend of scents, and luxurious packaging, this perfume is sure to delight</p>
+        <div>
+            <span class="price">$149.99</span>
+            <span class="discount">$260.00</span>
+        </div>
+        <button class="buy">BUY IT</button>
+       
+    </div>
+</div>
+
+</body>
+</html>
