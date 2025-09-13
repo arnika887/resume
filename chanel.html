@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="fa">
+
+<head>
+  <meta charset="UTF-8">
+  <title>CHANEL</title>
+  <link rel="website icon" type="jpg" href="img/54453df1-20e0-4acc-af01-4f38c788a098.jpg" />
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f6e3ff;
+      margin: 0;
+      padding: 20px;
+    }
+
+
+    :root {
+      --gradient-minimal: linear-gradient(135deg, #f5f5dc, #d3a7ec);
+
+    }
+
+
+
+    h1 {
+      font-size: 34px;
+      margin-bottom: 20px;
+      color: #85164e;
+    }
+
+    .container {
+      display: grid;
+      grid-template-columns: 4fr 1fr;
+      gap: 50px;
+    }
+
+    .menu {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 20px;
+      background-color: #fdf2f9;
+      box-shadow: 0 10px 10px #a15c7f;
+      border-radius: 12px;
+    }
+
+    .card {
+      background: var(--gradient-minimal);
+      border-radius: 12px;
+      box-shadow: 0 4px 8px rgb(230, 169, 169);
+      overflow: hidden;
+      text-align: center;
+      padding: 10px;
+      transition: transform 0.2s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+    }
+
+    .card img {
+      width: 100%;
+      height: 140px;
+      object-fit: cover;
+      border-radius: 10px;
+    }
+
+    .card h3 {
+      font-size: 16px;
+      margin: 10px 0 5px;
+      color: #85164e;
+    }
+
+    .card p {
+      margin: 0;
+      font-size: 14px;
+      color: #be4180;
+    }
+
+    .price {
+      color: #C0166E;
+      font-weight: bold;
+      margin: 5px 0;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 6px 12px;
+      margin-top: 8px;
+      background: #C0166E;
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 14px;
+      transition: 0.3s ease;
+    }
+
+    .btn:hover {
+      background: #EE46A9;
+    }
+
+    .cart {
+      background: var(--gradient-minimal);
+      border-radius: 12px;
+      box-shadow: 0 10px 10px #85164e;
+      padding: 20px;
+    }
+
+    .cart h2 {
+      font-size: 18px;
+      margin-bottom: 15px;
+    }
+
+    .cart ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .cart ul li {
+      font-size: 14px;
+      margin-bottom: 8px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid #eee;
+      padding-bottom: 5px;
+    }
+
+    .cart ul li span {
+      margin-left: 10px;
+    }
+
+    .remove-btn {
+      background: transparent;
+      border: none;
+      color: red;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    .empty {
+      text-align: center;
+      opacity: 0.7;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>CHANEL PERFUME</h1>
+  <div class="container">
+    <!-- Menu -->
+    <div class="menu">
+      <div class="card">
+        <img src="img/50f8e87c-e7c6-43e1-ac0c-9cd33e9dd5e0.jpg" alt="">
+        <h3>COCO CHANEL</h3>
+        <p class="price">$6.50</p>
+        <a href="coco-chanel.html">
+          <button class="btn" data-name="coco chanel" data-price="6.50">Add to Cart</button>
+        </a>
+
+      </div>
+
+
+      <div class="card">
+        <img src="img/074ec991-6e1c-479c-8e58-6d6017154d11.jpg" alt="">
+        <h3>PARIS</h3>
+        <p class="price">$7.00</p>
+        <a href="paris.html">
+          <button class="btn" data-name="PARIS" data-price="7.00">Add to Cart</button>
+        </a>
+
+      </div>
+
+
+      <div class="card">
+        <img src="img/61e7d96a-0a4a-4243-8a57-feb092a1680d.jpg" alt="">
+        <h3>PARIS - RIVIERA</h3>
+        <p class="price">$8.00</p>
+        <button class="btn" data-name="riviera" data-price="8.00">Add to Cart</button>
+      </div>
+
+
+      <div class="card">
+        <img src="img/6690be5e-cf3c-446f-8c8c-cf2f81ca152c.jpg" alt="">
+        <h3>COCO CHANEL</h3>
+        <p class="price">$5.50</p>
+        <button class="btn" data-name="COCO" data-price="5.50">Add to Cart</button>
+      </div>
+
+
+      <div class="card">
+        <img src="img/71ac567e-f2c1-4fdf-9c48-7888b8cb78dd.jpg" alt="">
+        <h3>GERAUE</h3>
+        <p class="price">$4.00</p>
+        <button class="btn" data-name="GERAUE" data-price="4.00">Add to Cart</button>
+      </div>
+
+
+      <div class="card">
+        <img src="img/97c81e36-1ac4-42f1-8442-d144eb15a0c1.jpg" alt="">
+        <h3>GABRIELLE</h3>
+        <p class="price">$5.00</p>
+        <button class="btn" data-name="GABRIELLE" data-price="5.00">Add to Cart</button>
+      </div>
+
+
+      <div class="card">
+        <img src="img/f8b92599-d6d6-4585-83c6-c24c10e553db.jpg" alt="">
+        <h3>LE LION</h3>
+        <p class="price">$4.50</p>
+        <button class="btn" data-name="LE LION" data-price="4.50">Add to Cart</button>
+      </div>
+
+
+      <div class="card">
+        <img src="img/bda76438-3a1a-4e22-a080-42365057e653.jpg" alt="">
+        <h3>NOIR</h3>
+        <p class="price">$5.50</p>
+        <button class="btn" data-name="NOIR" data-price="5.50">Add to Cart</button>
+      </div>
+
+
+      <div class="card">
+        <img src="IMG/aa871dc1-face-4102-bd4f-5b00469e4341.jpg" alt="">
+        <h3>CHANCE</h3>
+        <p class="price">$6.50</p>
+        <button class="btn" data-name="CHANCE" data-price="6.50">Add to Cart</button>
+      </div>
+    </div>
+
+
+    <!-- Cart -->
+    <div class="cart">
+      <h2>Your Cart (<span id="cart-count">0</span>)</h2>
+      <ul id="cart-items">
+        <p class="empty">Your added items will appear here</p>
+      </ul>
+      <p><strong>Total: $<span id="cart-total">0.00</span></strong></p>
+    </div>
+  </div>
+
+
+</body>
+
+</html>
