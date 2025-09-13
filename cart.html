@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Card</title>
+  <style>
+    body {
+      font-family: "Poppins", sans-serif;
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(135deg, #065F46, #F5F5DC, #a855f7);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    .container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      align-items: center;
+      justify-content: center;
+      max-width: 1000px;
+      padding: 20px;
+    }
+
+    /* کارت */
+    .card {
+      width: 320px;
+      height: 190px;
+      border-radius: 16px;
+      color: #fff;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      background: linear-gradient(270deg, #065F46, #228B22, #F5F5DC, #228B22, #065F46);
+      background-size: 400% 400%;
+      animation: gradientMove 8s ease infinite;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+      transform: perspective(1000px) rotateY(-10deg);
+      transition: transform 0.4s ease;
+    }
+
+    .card:hover {
+      transform: perspective(1000px) rotateY(0deg) scale(1.05);
+    }
+
+    .card-number {
+      font-size: 1.2rem;
+      letter-spacing: 3px;
+    }
+
+    .card-footer {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.9rem;
+    }
+
+    @keyframes gradientMove {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    /* فرم */
+    form {
+      background: #fff;
+      padding: 25px;
+      border-radius: 12px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+      width: 320px;
+    }
+
+    form label {
+      font-size: 0.8rem;
+      font-weight: bold;
+      display: block;
+      margin-bottom: 6px;
+      color: #065F46;
+    }
+
+    form input {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 15px;
+      border: 2px solid #ccc;
+      border-radius: 8px;
+      font-size: 1rem;
+      transition: border-color 0.3s ease;
+    }
+
+    form input:focus {
+      outline: none;
+      border-color: #228B22;
+      box-shadow: 0 0 6px rgba(34,139,34,0.5);
+    }
+
+    .row {
+      display: flex;
+      gap: 10px;
+    }
+
+    .row input {
+      flex: 1;
+    }
+
+    button {
+      width: 100%;
+      padding: 12px;
+      font-size: 1rem;
+      font-weight: bold;
+      background: #065F46;
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: transform 0.2s,  0.3s;
+    }
+
+    button:hover {
+      background: #228B22;
+      transform: translateY(-2px);
+    }
+
+    /* ریسپانسیو */
+    @media (max-width: 768px) {
+      .container {
+        flex-direction: column;
+      }
+
+      .card {
+        transform: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- کارت -->
+    <div class="card">
+      <div class="card-number">9591 6489 6389 101E</div>
+      <div class="card-footer">
+        <span>FELICIA LEIRE</span>
+        <span>09/00</span>
+      </div>
+    </div>
+
+    <!-- فرم -->
+    <form>
+      <label for="name">CARDHOLDER NAME</label>
+      <input type="text" id="name" placeholder="Felicia Leire">
+
+      <label for="number">CARD NUMBER</label>
+      <input type="text" id="number" placeholder="9591 6489 6389 101E">
+
+      <div class="row">
+        <div>
+          <label for="exp">EXP. DATE (MM/YY)</label>
+          <input type="text" id="exp" placeholder="09/00">
+        </div>
+        <div>
+          <label for="cvc">CVC</label>
+          <input type="text" id="cvc" placeholder="123">
+        </div>
+      </div>
+
+      <button type="submit">Confirm</button>
+    </form>
+  </div>
+</body>
+</html>
