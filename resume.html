@@ -1,481 +1,502 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fa" dir="rtl">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>RESUME</title>
-  <link rel="stylesheet" href="css/style.css" />
-  <link rel="website icon" href="img/code.jpg" />
-  <style>
-    /* فونت‌ها */
-    body {
-      margin: 0;
-      font-family: "Georgia", serif;
-      background: linear-gradient(135deg, #372247, #a984ec, #d2b9e4, #2d143f);
-      background-size: 400% 400%;
-      animation: gradientMove 5s ease infinite;
-      color: #333;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PERFUME</title>
+    <link rel="website icon" type="jpg" href="img/icon.jpg" />
+    <style>
+        :root {
+            /* رنگ‌ها (hex) */
+            --c-minimal-1: #fdead7;
+            --c-minimal-2: #365485;
+            --c-minimal-3: #cc82e2;
+            --c-minimal-4: #dfbaeb;
 
-    @keyframes gradientMove {
-      0% {
-        background-position: 0% 50%;
-      }
-
-      50% {
-        background-position: 100% 50%;
-      }
-
-      100% {
-        background-position: 0% 50%;
-      }
-    }
-
-
-
-    /* حالت دارک */
-    body.dark-mode {
-      color: #eee;
-      background: linear-gradient(-45deg, #182346, #414c64, #505780, #27445d);
-      background-size: 400% 400%;
-      animation: darkGradientMove 12s ease infinite;
-    }
-
-    @keyframes darkGradientMove {
-      0% {
-        background-position: 0% 50%;
-      }
-
-      50% {
-        background-position: 100% 50%;
-      }
-
-      100% {
-        background-position: 0% 50%;
-      }
-    }
-
-    body.dark-mode .section {
-      background: rgba(0, 0, 0, 0.2);
-      border: 1px solid rgba(255, 255, 255, 0.06);
-      box-shadow: 0 8px 30px rgb(128, 125, 165);
-    }
-
-    body.dark-mode .navbar {
-      background: rgba(39, 37, 44, 0.1);
-    }
-
-    body.dark-mode .navbar a,
-    body.dark-mode .dark-toggle {
-      color: #eee;
-    }
-
-
-
-    /*menu*/
-    .navbar {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 50px;
-      background: rgba(255, 255, 255, 0.3);
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-      z-index: 1000;
-    }
-
-    .navbar ul {
-      margin: 0;
-      padding: 0;
-      list-style: none;
-      display: flex;
-      justify-content: center;
-    }
-
-    .navbar ul li {
-      margin: 0 20px;
-    }
-
-    .navbar ul li a,
-    .dark-toggle {
-      text-decoration: none;
-      font-weight: bold;
-      font-family: "Arial Black", sans-serif;
-      color: #333;
-      cursor: pointer;
-      transition: color 0.3s;
-    }
-
-    .navbar ul li a:hover,
-    .dark-toggle:hover {
-      color: #0077ff;
-    }
-
-    body.dark-mode .navbar {
-      background: rgba(0, 0, 0, 0.5);
-    }
-
-    body.dark-mode .navbar ul li a,
-    body.dark-mode .dark-toggle {
-      color: #eee;
-    }
-
-
-    /* سکشن‌ها */
-    .section {
-
-      margin: 30px auto;
-      padding: 30px;
-      border-radius: 20px;
-      background: linear-gradient(150deg, #9c82a3, #88728f, #cfb5d6, #dbc8e0);
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
-      border: 1px solid rgba(255, 255, 255, 0.3);
-      box-shadow: 0 8px 32px rgba(152, 255, 178, 0.3);
-      height: 300px;
-      margin-top: 80px;
-      width: 800px;
-
-    }
-
-    .section:hover {
-      box-shadow: 0 8px 30px rgb(255, 255, 255, 0.8);
-      transform: translateY(-5px);
-    }
-
-    .section h2 {
-      font-family: "Arial Black", sans-serif;
-      font-size: 24px;
-      margin-bottom: 15px;
-      color: #111;
-    }
-
-    .section p {
-      font-family: "Georgia", serif;
-      font-size: 16px;
-      line-height: 1.6;
-      color: #000000;
-    }
-
-    .my-img {
-      width: 200px;
-      height: 200px;
-      border-radius: 200px;
-      margin-left: 50px;
-      box-shadow: #8ec2a2;
-    }
+            --gradient-fantasy: linear-gradient(135deg, #c69eec, #F5F5DC, #aabdf1);
+            --gradient-button: linear-gradient(135deg, #b18df0, #fcfdc6, #d7d3fd);
+            --g-minimal: linear-gradient(135deg, var(--c-minimal-1), var(--c-minimal-2), var(--c-minimal-3));
+            --gradient-LINK: linear-gradient(135deg, #c5aeec, #fbfcd1, #cec9fa);
+        }
 
 
 
 
-    /*box main*/
-    .parent {
-      display: grid;
-      grid-template-columns: repeat(6, 1fr);
-      grid-template-rows: repeat(5, 1fr);
-      gap: 8px;
+        /* رادیوهای کنترل */
+        #menu-open,
+        #menu-close {
+            display: none;
+        }
 
-    }
+        /* دکمه همبرگری */
+        .hamburger {
+            cursor: pointer;
+            width: 30px;
+            height: 22px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            margin: 20px;
+            margin-right: 220px;
+        }
 
-    .slide1 {
-      grid-column: span 3 / span 3;
-      grid-row: span 2 / span 2;
-      background-color: transparent;
-      width: 400px;
-      height: 300px;
-      margin: auto;
-    }
+        .hamburger span {
+            display: block;
+            height: 4px;
+            background: #333;
+            border-radius: 4px;
+            transition: 0.3s;
+        }
 
-    .slide2 {
-      grid-column: span 3 / span 3;
-      grid-row: span 2 / span 2;
-      grid-column-start: 4;
-      background-color: transparent;
-      width: 200px;
-      height: 200px;
-      border-radius: 200px;
-      box-shadow: #8ec2a2;
-      margin: auto;
+        /* منو */
+        nav {
+            position: fixed;
+            top: 0;
+            left: -250px;
+            width: 150px;
+            height: 100%;
+            background: rgb(254, 255, 193, 0.1);
+            backdrop-filter: blur(12px);
+            padding-top: 60px;
+            transition: left 0.3s ease;
 
-    }
+        }
+
+        nav label {
+            display: block;
+            padding: 12px 20px;
+            font-weight: bold;
+            cursor: pointer;
+            color: #333;
+        }
+
+        /* وقتی بازه */
+        #menu-open:checked~nav {
+            left: 0;
+        }
+
+        /* افکت ضربدر روی همبرگر */
+        #menu-open:checked+label .line1 {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+
+        #menu-open:checked+label .line2 {
+            opacity: 0;
+        }
+
+        #menu-open:checked+label .line3 {
+            transform: rotate(-45deg) translate(5px, -5px);
+        }
 
 
 
-    .button-dark {
-      background-color: transparent;
-      margin-top: 10px;
-    }
+
+        body {
+
+            margin: 0;
+            padding: 20px;
+            background: var(--g-minimal);
+        }
+
+        h1 {
+            font-size: 34px;
+            margin-bottom: 20px;
+            color: #350868;
+        }
+
+        .container {
+            display: grid;
+            grid-template-columns: 4fr 1fr;
+            gap: 0px;
+        }
+
+        .menu {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 20px;
+            background-color: var(--gradient-neutral-2);
+
+            border-radius: 12px;
+            animation: gradientMove 8s ease infinite;
+            background-color: transparent;
+        }
 
 
-    .screen {
-      width: 200px;
-      height: 100px;
-      border-radius: 20px;
 
-    }
 
-    .but-screen {
-      width: 150px;
-      height: 30px;
-      background-color: transparent;
-      margin-left: 20px;
-      margin-top: 20px;
-    }
 
-    .but-screen:hover {
-      box-shadow: 0 10px 10px rgb(228, 227, 227, 0.8);
-    }
-  </style>
+
+
+
+
+        .card {
+            background: var(--gradient-fantasy);
+            border-radius: 12px;
+            box-shadow: 0 10px 10px rgb(196, 183, 202);
+            overflow: hidden;
+            text-align: center;
+            padding: 10px;
+            transition: transform 0.2s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card img {
+            width: 100%;
+            height: 140px;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+
+        .card h3 {
+            font-size: 16px;
+            margin: 10px 0 5px;
+            color: #350868;
+        }
+
+        .card p {
+            margin: 0;
+            font-size: 14px;
+            color: #be4180;
+        }
+
+        .price {
+            color: #C0166E;
+            font-weight: bold;
+            margin: 5px 0;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 6px 12px;
+            margin-top: 8px;
+            background: #6a31aa;
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: 0.3s ease;
+        }
+
+        .btn:hover {
+            background: #6e46b9;
+        }
+
+        .cart {
+            background: var(--gradient-fantasy);
+            border-radius: 12px;
+            box-shadow: 0 10px 10px rgb(209, 166, 229);
+            padding: 20px;
+        }
+
+        .cart h2 {
+            font-size: 18px;
+            margin-bottom: 15px;
+        }
+
+        .cart ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .cart ul li {
+            font-size: 14px;
+            margin-bottom: 8px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 5px;
+        }
+
+        .cart ul li span {
+            margin-left: 10px;
+        }
+
+        .remove-btn {
+            background: transparent;
+            border: none;
+            color: red;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .empty {
+            text-align: center;
+            opacity: 0.7;
+        }
+
+
+
+        .sign {
+            width: 100px;
+            height: 60px;
+            margin: auto;
+            margin-top: 30px;
+            background-color: var(--gradient-button);
+        }
+
+
+
+
+
+        :root {
+            --bg: #ffffff;
+            --accent: #ff3b30;
+            --muted: #9aa0a6;
+            --active: #e83e6b;
+            --shadow: 0 -8px 24px rgba(16, 24, 40, 0.06);
+            --radius: 14px;
+        }
+
+
+
+        .bottom-nav-wrap {
+            position: fixed;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            padding: env(safe-area-inset-bottom) 12px 12px;
+            box-sizing: border-box;
+        }
+
+        .bottom-nav {
+            max-width: 900px;
+            margin: 0 auto;
+            background: #fff;
+            border-radius: var(--radius) var(--radius) 12px 12px;
+            box-shadow: var(--shadow);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 8px;
+            gap: 6px;
+        }
+
+        .nav-item {
+            flex: 1;
+            text-align: center;
+            padding: 8px 6px;
+            border-radius: 10px;
+            text-decoration: none;
+            color: var(--muted);
+            font-size: 12px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 6px;
+            transition: all 180ms ease;
+            position: relative;
+        }
+
+        .nav-item svg {
+            width: 22px;
+            height: 22px;
+            fill: currentColor;
+        }
+
+        .nav-item.active {
+            color: var(--active);
+        }
+
+        .nav-item:hover {
+            color: var(--active);
+        }
+
+        .cart-badge {
+            position: absolute;
+            left: 14px;
+            top: 6px;
+            min-width: 18px;
+            height: 18px;
+            padding: 0 5px;
+            background: var(--accent);
+            color: #fff;
+            border-radius: 999px;
+            font-size: 11px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+
+
+        .link {
+            width: 150px;
+            height: 50px;
+            background: var(--gradient-link);
+            border-radius: 10px;
+            margin: auto;
+            font-size: 15px;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .link:hover {
+            width: 146px;
+            height: 46px;
+            box-shadow: 0 10px 10px rgb(247, 231, 255);
+        }
+
+
+
+
+
+
+
+    </style>
 </head>
 
 <body>
 
 
 
-  <div class="navbar">
-    <ul>
-      <li><a href="#about">About Me</a></li>
-      <li><a href="#skills">My Skills</a></li>
-      <li><a href="#info">Information</a></li>
-      <li><a href="#certificates">Certificates</a></li>
-      <li><a href="#projects">Projects</a></li>
-      <li><a href="#education">Education</a></li>
-      <li><button onclick="toggleDarkMode()" class="button-dark">🌙 Dark Mode</button></li>
-    </ul>
-  </div>
-
-
-  <!-- سکشن‌ها -->
-  <div class="section">
-    <div class="parent">
-      <div class="slide1">
-        <h3 class="shiny-text">Hello Im</h3>
-        <h1 class="shiny-text">ARNIKA YAHYAVI</h1>
-        <p>"I am a programmer and web designer with a strong passion for creating functional, user-friendly, and
-          visually appealing websites"</p><br><br>
-
-      </div>
-
-      <div class="slide2">
-        <img src="img/b842525f-3a3c-4ded-9a2e-4425021ff053.jpg" class="my-img" alt="" />
-      </div>
-
-    </div>
-  </div>
 
 
 
-  <div class="section" id="about">
-    <h2>About Me
-      <svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke-width="1.5"
-        width="24" height="24" color="#000000">
-        <defs>
-          <style>
-            .cls-6374f8d9b67f094e4896c60b-1 {
-              fill: none;
-              stroke: currentColor;
-              stroke-miterlimit: 10;
-            }
-          </style>
-        </defs>
-        <path class="cls-6374f8d9b67f094e4896c60b-1"
-          d="M2.45,7.23V9.14l5.73,1.91v4.77h0V22.5h1.91L11,16.69a1,1,0,0,1,2,0l.89,5.81h1.91V11.05l5.73-1.91V7.23Z">
-        </path>
-        <circle class="cls-6374f8d9b67f094e4896c60b-1" cx="12" cy="4.36" r="2.86"></circle>
-      </svg>
-    </h2>
+    <h1>PERFUME</h1>
+    <div class="container">
+        <!-- Menu -->
+        <div class="menu">
+            <div class="card">
+                <img src="img/CHANEL.jpg" alt="">
+                <h3>CHANELS</h3>
+                <a href="chanel.html">
+                    <button class="btn" data-name="chanel">VISIT THE CHANELS PERFUME</button>
+                </a>
 
-    <p>"Full-Stack Web Developer specializing in front-end and back-end development. Skilled in building modern,
-      responsive, and minimal websites with a focus on clean code, performance, and user experience."</p>
-    <p>Skilled in creating high-quality, modern websites<br><br>Experienced in responsive web
-      design<br><br>Specialized in designing clean and minimal website</p>
-
-  </div>
+            </div>
 
 
+            <div class="card">
+                <img src="img/dior.jpg" alt="">
+                <h3>DIOR</h3>
+                <a href="dior.html">
+                    <button class="btn" data-name="dior">VISIT THE DIOR PERFUME</button>
+                </a>
 
-  <div class="section" id="skills">
-    <h2>My Skills
-      <svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke-width="1.5"
-        width="24" height="24" color="#000000">
-        <defs>
-          <style>
-            .cls-6374f8d9b67f094e4896c65b-1 {
-              fill: none;
-              stroke: currentColor;
-              stroke-miterlimit: 10;
-            }
-          </style>
-        </defs>
-        <polyline class="cls-6374f8d9b67f094e4896c65b-1" points="7.23 6.27 1.5 12 7.23 17.73"></polyline>
-        <polyline class="cls-6374f8d9b67f094e4896c65b-1" points="16.77 17.73 22.5 12 16.77 6.27"></polyline>
-        <line class="cls-6374f8d9b67f094e4896c65b-1" x1="14.86" y1="6.27" x2="9.14" y2="17.73"></line>
-      </svg>
-    </h2>
-    <p>Porficient in English (Advance level)</p>
-    <p>Full-Stack Web Developer</p>
-    <p>Html<br>Css <br> Javascript <br> Bootstrap <br> MediaQueries <br> JQuery <br> PHP</p>
-
-  </div>
+            </div>
 
 
-
-  <div class="section" id="info">
-    <h2>Information
-      <svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke-width="1.5"
-        width="24" height="24" color="#000000">
-        <defs>
-          <style>
-            .cls-637642e7c3a86d32eae6f1a9-1 {
-              fill: none;
-              stroke: currentColor;
-              stroke-miterlimit: 10;
-            }
-          </style>
-        </defs>
-        <line class="cls-637642e7c3a86d32eae6f1a9-1" x1="10.09" y1="13.89" x2="13.91" y2="13.89"></line>
-        <polyline class="cls-637642e7c3a86d32eae6f1a9-1" points="10.09 8.16 12 8.16 12 13.89"></polyline>
-        <path class="cls-637642e7c3a86d32eae6f1a9-1"
-          d="M1.5,5.3v9.54a3.82,3.82,0,0,0,3.82,3.82H7.23v2.86L13,18.66h5.73a3.82,3.82,0,0,0,3.82-3.82V5.3a3.82,3.82,0,0,0-3.82-3.82H5.32A3.82,3.82,0,0,0,1.5,5.3Z">
-        </path>
-        <line class="cls-637642e7c3a86d32eae6f1a9-1" x1="11.05" y1="5.3" x2="12.95" y2="5.3"></line>
-      </svg>
-    </h2>
-
-    <p>Work email:<br>arnikayahyavi@gmail.com</p>
-    <p>Phone number<br>09399919948</p>
-    <p> Location:<br> IRAN, Tehran</p>
-    <p>Github:<br>github.com/arnika.887</p>
-
-  </div>
+            <div class="card">
+                <img src="img/ysl logo.jpg" alt="">
+                <h3>YVES SAINT LAURENT</h3>
+                <a href="ysl.html">
+                    <button class="btn">VISIT THE YSL PERFUME</button>
+                </a>
+            </div>
 
 
+            <div class="card">
+                <img src="img/GUCCI.jpg" alt="">
+                <h3>GUCCI</h3>
+                <a href="gucci.html">
+                    <button class="btn">VISIT THE GUCCI PERFUME</button>
+                </a>
 
-  <div class="section" id="certificates">
-    <h2>Certificates
-      <svg xmlns="http://www.w3.org/2000/svg" stroke-width="1.5" viewBox="0 0 22.91 22.537" width="24" height="24"
-        color="#000000">
-        <g id="diploma-certificate" transform="translate(-0.545 -1.025)">
-          <path id="Path_4" data-name="Path 4" d="M13.91,17.25H22.5V1.98H1.5V17.25h8.59" fill="none"
-            stroke="currentColor" stroke-miterlimit="10"></path>
-          <circle id="Ellipse_5" data-name="Ellipse 5" cx="2.86" cy="2.86" r="2.86" transform="translate(9.14 12.48)"
-            fill="none" stroke="currentColor" stroke-miterlimit="10"></circle>
-          <path id="Path_5" data-name="Path 5" d="M13.91,17.47v4.55L12,21.07l-1.91.95V17.47" fill="none"
-            stroke="currentColor" stroke-miterlimit="10"></path>
-          <line id="Line_4" data-name="Line 4" x2="13.36" transform="translate(5.32 5.8)" fill="none"
-            stroke="currentColor" stroke-miterlimit="10"></line>
-          <line id="Line_5" data-name="Line 5" x2="13.36" transform="translate(5.32 9.61)" fill="none"
-            stroke="currentColor" stroke-miterlimit="10"></line>
-        </g>
-      </svg>
-    </h2>
-    <p></p>
-  </div>
+            </div>
 
 
-
-  <div class="section" id="projects">
-    <h2>Projects
-      <svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke-width="1.5"
-        width="24" height="24" color="#000000">
-        <defs>
-          <style>
-            .cls-63762d3cc3a86d32eae6efea-1 {
-              fill: none;
-              stroke: currentColor;
-              stroke-miterlimit: 10;
-            }
-          </style>
-        </defs>
-        <polygon class="cls-63762d3cc3a86d32eae6efea-1"
-          points="12 2.49 15.51 8.17 22 9.76 17.68 14.85 18.18 21.51 12 18.98 5.82 21.51 6.32 14.85 2 9.76 8.49 8.17 12 2.49">
-        </polygon>
-        <line class="cls-63762d3cc3a86d32eae6efea-1" x1="12" y1="19" x2="12" y2="18.98"></line>
-        <line class="cls-63762d3cc3a86d32eae6efea-1" x1="12" y1="13" x2="12" y2="2.49"></line>
-        <line class="cls-63762d3cc3a86d32eae6efea-1" x1="18.18" y1="21.51" x2="12" y2="13"></line>
-        <line class="cls-63762d3cc3a86d32eae6efea-1" x1="12" y1="13" x2="5.82" y2="21.51"></line>
-        <line class="cls-63762d3cc3a86d32eae6efea-1" x1="22" y1="9.75" x2="12" y2="13"></line>
-        <line class="cls-63762d3cc3a86d32eae6efea-1" x1="12" y1="13" x2="2" y2="9.75"></line>
-      </svg>
-    </h2>
-    <div class="parent">
-      <div class="pro">
-        <img src="img/screen.png" alt="" class="screen" /><br>
-        <a href="index.html">
-          <button class="but-screen">see perfume website</button>
-        </a>
-      </div>
-
-      <div class="pro">
-        <img src="img/scre.png" alt="" class="screen">
-        <a href="sushi.html">
-          <button class="but-screen">see sushi website</button>
-        </a>
-      </div>
-
-      <div class="pro">
-        <img src="img/Screenshot nasa.png" alt="" class="screen">
-        <a href="nasa.html">
-          <button class="but-screen">see nasa website</button>
-        </a>
-      </div>
-
-      <div class="pro2">
-        <img src="img/Screenshot volvo.png" alt="" class="screen">
-        <a href="volvo.html">
-          <button class="but-screen">see volvo website</button>
-        </a>
-      </div>
+            <div class="card">
+                <img src="img/tom.jpg" alt="">
+                <h3>TOM FORD</h3>
+                <a href="tom.html">
+                    <button class="btn">VISIT THE TOM FORD PERFUME</button>
+                </a>
+            </div>
 
 
-    </div>
-  </div>
+            <div class="card">
+                <img src="img/versace.jpg" alt="">
+                <h3>VERSACE</h3>
+                <a href="versace.html">
+                    <button class="btn">VISIT THE VERSACE PERFUME</button>
+                </a>
+            </div>
 
 
+            <div class="card">
+                <img src="img/cklogo.jpg" alt="">
+                <h3>CALVIN KLEIN</h3>
+                <a href="CALVIN.html">
+                    <button class="btn">VISIT THE CALVIN KLEIN PERFUME</button>
+                </a>
+            </div>
 
-  <div class="section" id="education">
-    <h2>Education
-      <svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke-width="1.5"
-        width="24" height="24" color="#000000">
-        <defs>
-          <style>
-            .cls-6374f8d9b67f094e4896c628-1 {
-              fill: none;
-              stroke: currentColor;
-              stroke-miterlimit: 10;
-            }
-          </style>
-        </defs>
-        <rect class="cls-6374f8d9b67f094e4896c628-1" x="3.39" y="1.5" width="19.09" height="21"></rect>
-        <circle class="cls-6374f8d9b67f094e4896c628-1" cx="13.89" cy="8.18" r="2.86"></circle>
-        <path class="cls-6374f8d9b67f094e4896c628-1"
-          d="M9.11,15.82l.21-1a4.65,4.65,0,0,1,4.57-3.74h0a4.64,4.64,0,0,1,4.56,3.74l.21,1"></path>
-        <line class="cls-6374f8d9b67f094e4896c628-1" x1="0.52" y1="5.32" x2="6.25" y2="5.32"></line>
-        <line class="cls-6374f8d9b67f094e4896c628-1" x1="0.52" y1="10.09" x2="6.25" y2="10.09"></line>
-        <line class="cls-6374f8d9b67f094e4896c628-1" x1="0.52" y1="14.86" x2="6.25" y2="14.86"></line>
-        <line class="cls-6374f8d9b67f094e4896c628-1" x1="0.52" y1="19.64" x2="6.25" y2="19.64"></line>
-      </svg>
-    </h2>
-    <p>High School Diploma in Mathematics and Physics <br><br>–dokhanchi High School, Tehran<br><br>-(2015 – 2026)</p>
-    <p> Focused on mathematics, physics, and core sciences, with a strong emphasis on analytical thinking and
-      problem-solving skills</p>
-  </div>
+
+            <div class="card">
+                <img src="img/GIVE.jpg" alt="">
+                <h3>GIVENCHY</h3>
+                <a href="GIVE.html">
+                    <button class="btn">VISIT THE GIVENCHY PERFUME</button>
+                </a>
+            </div>
+        </div>
+
+
+        <!-- کنترل باز/بسته -->
+        <input type="radio" id="menu-open" name="menu">
+        <label for="menu-open" class="hamburger">
+            <span class="line1"></span>
+            <span class="line2"></span>
+            <span class="line3"></span>
+        </label>
+
+        <input type="radio" id="menu-close" name="menu">
+
+        <!-- منو -->
+        <nav>
+            <!-- فقط این دکمه منو رو می‌بنده -->
+            <label for="menu-close" class="back-btn">⬅ Back</label><br>
+
+            <!-- بقیه فقط لینک هستن -->
+            <a href="home.html">
+                <button class="link">
+                    home
+                </button><br><br>
+            </a>
+
+            <a href="sign.html">
+                <button class="link">
+                    sign up
+                </button><br><br>
+            </a>
+
+            <a href="login.html">
+                <button class="link">
+                    login
+                </button><br><br>
+            </a>
+
+            <a href="cart.html">
+                <button class="link">
+                    buy it
+                </button><br><br>
+            </a>
+
+            <a href="blog.html">
+                <button class="link">
+                    blog
+                </button><br><br>
+            </a>
+
+
+        </nav>
 
 
 
 
-  <script>
-    function toggleDarkMode() {
-      document.body.classList.toggle("dark-mode");
-    }
-  </script>
 
-  <script src="js/code.js"></script>
+
+
+
+
+
 
 
 </body>
-
 </html>
