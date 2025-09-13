@@ -1,0 +1,278 @@
+<!doctype html>
+<html lang="fa">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Animated Highlight</title>
+<style>
+  :root{
+    /* رنگ‌ها (hex) */
+    --c-minimal-1: #f5f7fa;
+    --c-minimal-2: #c3cfe2;
+
+    --c-modern-1: #0f172a;
+    --c-modern-2: #1e3a8a;
+    --c-modern-3: #7c3aed;
+
+    --c-natural-1: #0b6e4f;
+    --c-natural-2: #7bd389;
+    --c-natural-3: #e6f9ef;
+
+    --c-energy-1: #ff7a18;
+    --c-energy-2: #af002d;
+    --c-energy-3: #ffb347;
+
+    --c-fantasy-1: #ff6ec7;
+    --c-fantasy-2: #7a2fff;
+    --c-fantasy-3: #00ffd1;
+
+    /* گرادینت‌های از پیش تعریف‌شده */
+    --g-minimal: linear-gradient(135deg, var(--c-minimal-1), var(--c-minimal-2));
+    --g-modern: conic-gradient(from 180deg at 50% 50%, var(--c-modern-1), var(--c-modern-2), var(--c-modern-3));
+    --g-natural: linear-gradient(120deg, var(--c-natural-1), var(--c-natural-2), var(--c-natural-3));
+    --g-energy: linear-gradient(45deg, var(--c-energy-1), var(--c-energy-2), var(--c-energy-3));
+    --g-fantasy: radial-gradient(circle at 20% 30%, var(--c-fantasy-1), transparent 25%),
+                radial-gradient(circle at 80% 70%, var(--c-fantasy-2), transparent 28%),
+                linear-gradient(90deg, rgba(122,47,255,0.9), rgba(0,255,209,0.8));
+  }
+
+  /* ریست و صفحه پایه */
+  *{box-sizing:border-box}
+  html,body{height:100%}
+  body{
+    margin:0;
+    font-family: "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    color: #fafafa;
+    background: #0b0f1a;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:24px;
+  }
+
+  /* کانتینر اصلی */
+  .stage{
+    width:100%;
+    max-width:1100px;
+    border-radius:18px;
+    overflow:hidden;
+    position:relative;
+    min-height:520px;
+    box-shadow: 0 10px 40px rgba(2,6,23,0.7);
+  }
+
+  /* پس‌زمینهٔ گرادینت متحرک */
+  .gradient-bg{
+    position:absolute;
+    inset:0;
+    background-image: var(--g-fantasy); /* می‌تونی این رو به --g-modern یا ... تغییر بدی */
+    background-size: 300% 300%;
+    background-repeat: no-repeat;
+    transition: background-image .6s ease;
+    z-index:0;
+    filter: saturate(1.05) contrast(1.05);
+    will-change: background-position;
+    animation: slide 12s linear infinite;
+  }
+
+  /* هایلایت برجسته — یک لایهٔ نیمه‌شفاف براق که حرکت می‌کنه */
+  .gradient-bg::after{
+    content:"";
+    position:absolute;
+    inset:-30% -30%;
+    background: linear-gradient(120deg, rgba(255,255,255,0.08), rgba(255,255,255,0.02) 40%, rgba(255,255,255,0.0) 60%);
+    transform: rotate(-20deg);
+    mix-blend-mode: screen;
+    filter: blur(20px) saturate(1.2);
+    animation: sheen 6s ease-in-out infinite;
+    pointer-events:none;
+  }
+
+  /* متن و محتوا روی پس‌زمینه */
+  .content{
+    position:relative;
+    z-index:2;
+    padding:48px;
+    display:flex;
+    gap:24px;
+    align-items:flex-start;
+    color: #fff;
+  }
+  .hero{
+    flex:1 1 60%;
+  }
+  .hero h1{
+    margin:0 0 12px 0;
+    font-size: clamp(26px, 4vw, 44px);
+    line-height:1.02;
+    letter-spacing: -0.02em;
+    text-shadow: 0 6px 20px rgba(2,6,23,0.6);
+  }
+  .hero p{margin:0 0 18px 0; opacity:0.95}
+
+  .controls{
+    display:flex;
+    gap:8px;
+    flex-wrap:wrap;
+  }
+  .btn{
+    background: rgba(255,255,255,0.08);
+    border:1px solid rgba(255,255,255,0.06);
+    padding:10px 14px;
+    border-radius:10px;
+    cursor:pointer;
+    color:#fff;
+    font-weight:600;
+    backdrop-filter: blur(6px);
+  }
+  .btn:active{transform:translateY(1px)}
+
+  /* پالت رنگ و کدها */
+  .palette{
+    width:320px;
+    background: rgba(0,0,0,0.25);
+    border-left: 1px solid rgba(255,255,255,0.04);
+    padding:18px;
+    border-radius: 0 0 0 0; /* چپ */
+  }
+  .palette h3{margin-top:0}
+  .swatches{
+    display:grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap:8px;
+    margin-bottom:12px;
+  }
+  .sw{
+    aspect-ratio:1/1;
+    border-radius:8px;
+    box-shadow: 0 6px 14px rgba(2,6,23,0.5) inset;
+    display:flex;
+    align-items:flex-end;
+    justify-content:center;
+    padding:8px;
+    font-size:12px;
+    color: rgba(255,255,255,0.95);
+    text-shadow: 0 2px 6px rgba(2,6,23,0.6);
+  }
+  .g-list{display:flex;flex-direction:column;gap:8px;margin-top:6px}
+  .g-item{
+    background: rgba(255,255,255,0.03);
+    padding:8px;
+    border-radius:8px;
+    font-size:13px;
+    overflow:hidden;
+    white-space:nowrap;
+    text-overflow:ellipsis;
+  }
+  .small{font-size:12px;opacity:0.9}
+
+  /* انیمیشن‌ها */
+  @keyframes slide{
+    0%   { background-position: 0% 50%; }
+    25%  { background-position: 50% 80%; }
+    50%  { background-position: 100% 50%; }
+    75%  { background-position: 50% 20%; }
+    100% { background-position: 0% 50%; }
+  }
+  @keyframes sheen{
+    0%{ transform: translateX(-20%) rotate(-20deg) scale(1); opacity:0.0 }
+    10%{ opacity:0.6 }
+    50%{ transform: translateX(60%) rotate(-18deg) scale(1.05); opacity:0.12 }
+    90%{ opacity:0.6 }
+    100%{ transform: translateX(120%) rotate(-18deg) scale(1.07); opacity:0 }
+  }
+
+  /* احترام به prefers-reduced-motion */
+  @media (prefers-reduced-motion: reduce){
+    .gradient-bg,
+    .gradient-bg::after { animation: none !important; transition: none !important; }
+  }
+
+  /* responsive */
+  @media (max-width:880px){
+    .content{flex-direction:column}
+    .palette{width:100%}
+  }
+</style>
+</head>
+<body>
+  <div class="stage" role="region" aria-label="Animated gradient demo">
+    <div class="gradient-bg" id="bg"></div>
+
+    <div class="content">
+      <div class="hero">
+        <h1>گرادینت برجسته و متحرّک</h1>
+        
+
+        <div class="controls">
+          <button class="btn" data-g="--g-minimal">Minimal</button>
+          <button class="btn" data-g="--g-modern">Modern</button>
+          <button class="btn" data-g="--g-natural">Natural</button>
+          <button class="btn" data-g="--g-energy">Energy</button>
+          <button class="btn" data-g="--g-fantasy">Fantasy</button>
+        </div>
+       
+      </div>
+
+      <aside class="palette" aria-hidden="false">
+        <h3>پالت رنگ‌ها & کدها</h3>
+        <div class="swatches" aria-hidden="true">
+          <div class="sw" style="background:var(--c-minimal-1)">#f5f7fa</div>
+          <div class="sw" style="background:var(--c-minimal-2)">#c3cfe2</div>
+
+          <div class="sw" style="background:var(--c-modern-1)">#0f172a</div>
+          <div class="sw" style="background:var(--c-modern-2)">#1e3a8a</div>
+          <div class="sw" style="background:var(--c-modern-3)">#7c3aed</div>
+
+          <div class="sw" style="background:var(--c-natural-1)">#0b6e4f</div>
+          <div class="sw" style="background:var(--c-natural-2)">#7bd389</div>
+          <div class="sw" style="background:var(--c-natural-3)">#e6f9ef</div>
+
+          <div class="sw" style="background:var(--c-energy-1)">#ff7a18</div>
+          <div class="sw" style="background:var(--c-energy-2)">#af002d</div>
+          <div class="sw" style="background:var(--c-energy-3)">#ffb347</div>
+
+          <div class="sw" style="background:var(--c-fantasy-1)">#ff6ec7</div>
+          <div class="sw" style="background:var(--c-fantasy-2)">#7a2fff</div>
+          <div class="sw" style="background:var(--c-fantasy-3)">#00ffd1</div>
+        </div>
+
+        <div class="g-list">
+          <div class="g-item"><strong>--g-minimal</strong> — <span class="small">linear-gradient(135deg, #f5f7fa, #c3cfe2)</span></div>
+          <div class="g-item"><strong>--g-modern</strong> — <span class="small">conic-gradient(from 180deg, #0f172a, #1e3a8a, #7c3aed)</span></div>
+          <div class="g-item"><strong>--g-natural</strong> — <span class="small">linear-gradient(120deg, #0b6e4f, #7bd389, #e6f9ef)</span></div>
+          <div class="g-item"><strong>--g-energy</strong> — <span class="small">linear-gradient(45deg, #ff7a18, #af002d, #ffb347)</span></div>
+          <div class="g-item"><strong>--g-fantasy</strong> — <span class="small">multi-layer radial + linear (پوششی فانتزی)</span></div>
+        </div>
+      </aside>
+    </div>
+  </div>
+
+<script>
+  // کنترلر ساده برای تغییر گرادینت
+  const buttons = document.querySelectorAll('.btn');
+  const bg = document.getElementById('bg');
+
+  buttons.forEach(btn=>{
+    btn.addEventListener('click', ()=>{
+      const varName = btn.getAttribute('data-g');
+      // نکته: می‌تونی اینجا بجای setProperty، backgroundImage مستقیم بزنی:
+      // bg.style.backgroundImage = getComputedStyle(document.documentElement).getPropertyValue(varName);
+      // اما این روش از متغیرهای CSS استفاده می‌کنه تا قابل‌تغییر در runtime بمونه:
+      const gradient = getComputedStyle(document.documentElement).getPropertyValue(varName).trim();
+      if (gradient) {
+        // قرار دادن گرادینت بصورت inline (با transition در CSS به‌همراه animation)
+        bg.style.backgroundImage = gradient;
+        // برای تاکید، کمی سرعت انیمیشن رو عوض کن:
+        bg.style.animationDuration = '10s';
+      }
+    });
+  });
+
+  // مقدار پیش‌فرض — اگر کاربر نخواست کاری کنه:
+  // مقدار اولیه در CSS تنظیم شده ( --g-fantasy ) ؛ اینجا اگر خواستی می‌تونی آن را روی مدرن بگذاری:
+  // bg.style.backgroundImage = getComputedStyle(document.documentElement).getPropertyValue('--g-modern');
+
+</script>
+</body>
+</html>

@@ -1,0 +1,12 @@
+nav label {
+  display: block;
+  padding: 12px 20px;
+  font-weight: bold;
+  cursor: pointer;
+  color: #333;
+  transition: color 0.3s;
+}
+
+#menu-toggle:checked ~ nav label {
+  color: #1e90ff; /* وقتی منو بازه */
+}
