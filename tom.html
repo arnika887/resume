@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="fa">
+
+<head>
+    <meta charset="UTF-8">
+    <title>CHANEL</title>
+    <link rel="website icon" type="jpg" href="img/tom ford.jpg" />
+    <style>
+
+        :root {
+           --gradient-natural: linear-gradient(135deg, #08553f, #e9fcf2, #7bd389);
+           --gradient-nat: linear-gradient(135deg, #50b397, #bfcfc7, #85b98e);
+        }
+
+
+
+        body {
+            font-family: Arial, sans-serif;
+            background: var(--gradient-natural);
+            margin: 0;
+            padding: 20px;
+        }
+
+
+        h1 {
+            font-size: 34px;
+            margin-bottom: 20px;
+            color: #a1e2a5;
+        }
+
+        .container {
+            display: grid;
+            grid-template-columns: 4fr 1fr;
+            gap: 50px;
+        }
+
+        .menu {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+            background-color: transparent;
+            box-shadow: 0 10px 10px #f9fcff;
+            border-radius: 12px;
+        }
+
+        .card {
+            background: var(--gradient-nat);
+            border-radius: 12px;
+            box-shadow: 0 4px 8px #f9fcff;
+            overflow: hidden;
+            text-align: center;
+            padding: 10px;
+            transition: transform 0.2s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card img {
+            width: 100%;
+            height: 140px;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+
+        .card h3 {
+            font-size: 16px;
+            margin: 10px 0 5px;
+            color: #17263A;
+        }
+
+        .card p {
+            margin: 0;
+            font-size: 14px;
+            color: #254667;
+        }
+
+        .price {
+            color: #254667;
+            font-weight: bold;
+            margin: 5px 0;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 6px 12px;
+            margin-top: 8px;
+            background: #5ebe7e;
+            color: #000000;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: 0.3s ease;
+        }
+
+        .btn:hover {
+            background: #9dddc2;
+        }
+
+        .cart {
+            background: var(--gradient-nature);
+            ;
+            border-radius: 12px;
+            box-shadow: 0 10px 10px #f9fcff;
+            padding: 20px;
+        }
+
+        .cart h2 {
+            font-size: 18px;
+            margin-bottom: 15px;
+        }
+
+        .cart ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .cart ul li {
+            font-size: 14px;
+            margin-bottom: 8px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 5px;
+        }
+
+        .cart ul li span {
+            margin-left: 10px;
+        }
+
+        .remove-btn {
+            background: transparent;
+            border: none;
+            color: red;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .empty {
+            text-align: center;
+            opacity: 0.7;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>TOM FORD PERFUME</h1>
+    <div class="container">
+        <!-- Menu -->
+        <div class="menu">
+            <div class="card">
+                <img src="img/tom1.jpg" alt="">
+                <h3>MANDARINO DI AMALFI</h3>
+                <p class="price">$20.50</p>
+                <a href=".html">
+                    <button class="btn">Add to Cart</button>
+                </a>
+            </div>
+
+
+            <div class="card">
+                <img src="img/tom2.jpg" alt="">
+                <h3>NEROLI PORTOFINO</h3>
+                <p class="price">$10.50</p>
+                <a href=".html">
+                    <button class="btn">Add to Cart</button>
+                </a>
+            </div>
+
+
+            <div class="card">
+                <img src="img/tom3.jpg" alt="">
+                <h3>OUD VOYAGER</h3>
+                <p class="price">$15.00</p>
+                <button class="btn">Add to Cart</button>
+            </div>
+
+
+            <div class="card">
+                <img src="img/tom4.jpg" alt="">
+                <h3>OMBRE LEATHER</h3>
+                <p class="price">$9.50</p>
+                <button class="btn">Add to Cart</button>
+            </div>
+
+
+            <div class="card">
+                <img src="img/tom5.jpg" alt="">
+                <h3>TOBACCO VANILLE</h3>
+                <p class="price">$17.00</p>
+                <button class="btn">Add to Cart</button>
+            </div>
+
+
+            <div class="card">
+                <img src="img/tom6.jpg" alt="">
+                <h3>LOST CHEERY</h3>
+                <p class="price">$21.00</p>
+                <button class="btn">Add to Cart</button>
+            </div>
+
+
+            <div class="card">
+                <img src="img/tom7.jpg" alt="">
+                <h3>JASMIN ROUGE</h3>
+                <p class="price">$10.50</p>
+                <button class="btn">Add to Cart</button>
+            </div>
+
+
+            <div class="card">
+                <img src="img/tom8.jpg" alt="">
+                <h3>COSTA AZZURRA</h3>
+                <p class="price">$10.50</p>
+                <button class="btn">Add to Cart</button>
+            </div>
+
+
+            <div class="card">
+                <img src="img/tom9.jpg" alt="">
+                <h3>SOLEIL BRULANT</h3>
+                <p class="price">$13.50</p>
+                <button class="btn">Add to Cart</button>
+            </div>
+
+
+
+            <div class="card">
+                <img src="img/tom10.jpg" alt="">
+                <h3>BITTER PEACH</h3>
+                <p class="price">$16.50</p>
+                <button class="btn">Add to Cart</button>
+            </div>
+
+
+            <div class="card">
+                <img src="img/tom11.jpg" alt="">
+                <h3>AMBER INTRIGUE</h3>
+                <p class="price">$9.50</p>
+                <button class="btn">Add to Cart</button>
+            </div>
+
+
+            <div class="card">
+                <img src="img/tom call.jpg" alt="">
+                <h3>TOM FORD CALLECTION</h3>
+                <p class="price">$30.50</p>
+                <button class="btn">Add to Cart</button>
+            </div>
+
+        </div>
+
+
+
+
+
+
+
+        <!-- Cart -->
+        <div class="cart">
+            <h2>Your Cart (<span id="cart-count">0</span>)</h2>
+            <ul id="cart-items">
+                <p class="empty">Your added items will appear here</p>
+            </ul>
+            <p><strong>Total: $<span id="cart-total">0.00</span></strong></p>
+        </div>
+    </div>
+
+
+</body>
+
+</html>
